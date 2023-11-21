@@ -1,0 +1,257 @@
+<div class="body">
+  <div class="top_container">
+    <div>
+      <select class="form-select fixed-width">
+        <option> GET </option>
+        <option selected> POST </option>
+        <option> PUT </option>
+        <option> PATCH </option>
+        <option> DELETE </option>
+        <option> HEAD </option>
+        <option> OPTIONS </option>
+      </select>
+
+      <input type="text" class="api_link" placeholder="Enter URL or paste text">
+
+      <button class="send_btn"> Send </button>
+
+    </div>
+
+    <div class="tabset">
+      <div class="tab" (click)="showTab('params')" [class.selected]="selectedTab === 'params'">Params</div>
+      <div class="tab" (click)="showTab('authorization')" [class.selected]="selectedTab === 'authorization'">
+        Authorization
+      </div>
+      <div class="tab" (click)="showTab('headers')" [class.selected]="selectedTab === 'headers'">Headers</div>
+      <div class="tab" (click)="showTab('body')" [class.selected]="selectedTab === 'body'">Body</div>
+      <div class="tab" (click)="showTab('preRequestScript')" [class.selected]="selectedTab === 'preRequestScript'">
+        Pre-request Script</div>
+      <div class="tab" (click)="showTab('tests')" [class.selected]="selectedTab === 'tests'">Tests</div>
+    </div>
+
+    <div>
+
+      <div *ngIf="activeTab === 'params'" class="tab-content">
+
+        <div>
+          <p style="margin: 0;"> Query params </p>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 50px;"></th>
+                <th style="width: 18rem;"> Key </th>
+                <th style="width: 18rem;"> Value </th>
+                <th> Description </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div *ngIf="activeTab === 'authorization'" class="tab-content">
+
+        <div class="container">
+          <div class="auth_container">
+            <div class="type_select">
+              <p style="margin: 0;">Type</p>
+              <select>
+                <option> Inherit auth from parent</option>
+                <option> No Auth </option>
+                <option> Basic Auth </option>
+                <option> Bearer Token </option>
+                <option> Jwt Bearer </option>
+                <option> Digest Auth </option>
+                <option> OAuth 1.0</option>
+                <option> OAuth 2.0 </option>
+                <option> Hawk Authentication </option>
+                <option> AWS Signature </option>
+                <option> NTLN Authentication [Beta]</option>
+                <option> API key </option>
+                <option> Akamai EdgeGrid</option>
+                <option> ASAP (Atlassian)</option>
+              </select>
+            </div>
+
+            <small style="margin: 2rem 0 7rem 7px;">The authorization header will be automatically <br> generated when
+              you send the request. <br> Learn more about </small>
+
+          </div>
+          <div class="vertical_line"></div>
+          <div class="right_side">
+            <p>This request is using No Auth from collection New Collection.</p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div *ngIf="activeTab === 'headers'" class="tab-content">
+
+        <div>
+          <p style="margin: 0px;"> Headers </p>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 50px;"></th>
+                <th style="width: 18rem;"> Key </th>
+                <th style="width: 18rem;"> Value </th>
+                <th> Description </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- <div *ngIf="activeTab === 'body'" class="tab-content" style="margin-bottom: 10rem;"> -->
+      <div *ngIf="activeTab === 'body'" class="tab-content">
+
+        <div class="body_radio">
+          <div>
+            <input type="radio" name="bodyGroup" [(ngModel)]="selectedOption" value="none">
+            <label for="inlineRadio1"> none </label>
+          </div>
+          <div>
+            <input type="radio" name="bodyGroup" [(ngModel)]="selectedOption" value="form-data">
+            <label for="inlineRadio1"> form-data </label>
+          </div>
+          <div>
+            <input type="radio" name="bodyGroup" [(ngModel)]="selectedOption" value="x-www-form-urlencoded">
+            <label for="inlineRadio1"> x-www-form-urlencoded </label>
+          </div>
+          <div>
+            <input type="radio" name="bodyGroup" [(ngModel)]="selectedOption" value="raw">
+            <label for="inlineRadio1"> raw </label>
+          </div>
+          <div>
+            <input type="radio" name="bodyGroup" [(ngModel)]="selectedOption" value="binary">
+            <label for="inlineRadio1"> binary </label>
+          </div>
+          <div>
+            <input type="radio" name="bodyGroup" [(ngModel)]="selectedOption" value="graphQL">
+            <label for="inlineRadio1"> graphQL </label>
+          </div>
+        </div>
+
+        <div *ngIf="selectedOption === 'none'" class="none">This request doesn't have body</div>
+        <div *ngIf="selectedOption === 'form-data'">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 50px;"></th>
+                  <th style="width: 18rem;"> Key </th>
+                  <th style="width: 18rem;"> Value </th>
+                  <th> Description </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="selectedOption === 'x-www-form-urlencoded'">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 50px;"></th>
+                  <th style="width: 18rem;"> Key </th>
+                  <th style="width: 18rem;"> Value </th>
+                  <th> Description </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="selectedOption === 'raw'">
+          <div class="body_container">
+
+          </div>
+        </div>
+
+        <div *ngIf="selectedOption === 'binary'" class="binary">
+          <div>
+            <input type="file" id="fileInput">
+          </div>
+        </div>
+
+        <div *ngIf="selectedOption === 'graphQL'">
+
+        <div class="body_container">
+
+        </div>
+      </div>
+
+      </div>
+
+      <div *ngIf="activeTab === 'preRequestScript'" class="tab-content">
+
+        <div class="body_container">
+
+        </div>
+
+      </div>
+
+      <div *ngIf="activeTab === 'tests'" class="tab-content">
+
+        <div class="body_container">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="response_container">
+      <h5 style="margin: 0px;"> Response </h5>
+
+    </div>
+
+  </div>
+
+</div>

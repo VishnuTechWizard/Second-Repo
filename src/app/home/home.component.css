@@ -1,0 +1,163 @@
+
+.body{
+    background-color: #f0f0f0;
+}
+
+
+/* All Content */
+.top_container {
+    display: flex;
+    margin-top: 5rem;
+    flex-direction: column;
+    margin-left: 19rem;
+}
+
+/* Select box */
+.form-select {
+    width: 7rem;
+    height: 38px;
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    margin-right: 1px;
+}
+
+/* text box */
+.api_link {
+    width: 49rem;
+    height: 34px;
+    outline: none;
+    border: 1px solid black;
+    padding-left: 2rem;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* send Btn */
+.send_btn {
+    padding: 9px 26px;
+    margin-left: 9px;
+    border-radius: 8px;
+    background: cornflowerblue;
+}
+
+
+.tabset {
+    display: flex;
+    margin-top: 1rem;
+    gap: 2rem;
+    margin-right: 7rem;
+    margin-bottom: 3px;
+}
+
+.tab {
+    /* padding: 10px; */
+    cursor: pointer;
+}
+
+.tab.selected {
+    border-bottom: 2px solid coral;
+}
+
+/* table contnet */
+
+table {
+    border-collapse: collapse;
+    width: 85%;
+    border: 1px solid #ddd;
+    margin-bottom: 10rem;
+}
+
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 16px;
+    text-align: left;
+
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+.container {
+    display: flex;
+    width: 85%;
+    align-items: flex-start;
+    border: 1px solid black;
+}
+
+.auth_container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.type_select {
+    display: flex;
+    gap: 6rem;
+    margin-top: 1.8rem;
+    margin-left: 1rem;
+
+}
+
+.type_select select {
+    width: 6.5rem;
+    padding: 7px 0;
+    border-radius: 5px;
+
+}
+
+.vertical_line {
+    border-left: 1px solid #ccc;
+    height: 17rem;
+    margin: 0 10px;
+}
+
+.right_side{
+    display: flex;
+    margin-left: 8rem;
+    margin-top: 8rem;
+}
+
+/* Body Container */
+
+.body_container{
+    border: 1px solid black;
+    height: 16rem;
+    width: 85%;
+    border-bottom: none;
+}
+
+.body_radio{
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.none  {
+    margin-bottom: 14rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.binary{
+    margin-bottom: 14rem;
+}
+
+
+/* response container */
+.response_container{
+    border: 1px solid black;
+    height: 16rem;
+    width: 85%;
+    
+}
+
